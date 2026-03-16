@@ -52,3 +52,186 @@ button {
 
 
 /* you should to style the website */
+
+/* Basic layout styling */
+.page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header-content {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header_big-header h1 {
+  font-size: 2.5rem;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.header_sub-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+.main-content {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-side-content {
+  flex: 1;
+  max-width: 400px;
+}
+
+.right-side-content {
+  flex: 1;
+  text-align: center;
+}
+
+.castle-image-part img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* Form styling */
+form {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid #e9ecef;
+  margin-bottom: 2rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--color-primary);
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background: #2563eb;
+}
+
+/* Password result styling */
+.password-result {
+  background: #d4edda;
+  border: 1px solid #c3e6cb;
+  color: #155724;
+  padding: 1.5rem;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+
+.password-result h3 {
+  margin-bottom: 0.5rem;
+  color: #155724;
+}
+
+.password-result strong {
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  word-break: break-all;
+}
+
+/* Checkbox styling */
+.checkbox-group {
+  display: flex;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  flex-wrap: wrap;
+}
+
+.checkbox-option {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.checkbox-option input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.checkbox-custom {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #e9ecef;
+  border-radius: 4px;
+  margin-right: 0.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.checkbox-option input[type="checkbox"]:checked + .checkbox-custom {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.checkbox-option input[type="checkbox"]:checked + .checkbox-custom::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.checkbox-label {
+  color: var(--color-text);
+  font-weight: 500;
+}
+
+/* Error styling */
+.error-message {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 1rem;
+  border-radius: var(--radius);
+  margin-top: 1rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .header_big-header h1 {
+    font-size: 2rem;
+  }
+  
+  .page {
+    padding: 1rem;
+  }
+}
