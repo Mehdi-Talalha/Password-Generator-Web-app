@@ -2,12 +2,6 @@ from flask import Flask, render_template, request
 import random
 import string
 
-# alpha_lowercase = string.ascii_lowercase
-# alpha_uppercase = string.ascii_uppercase
-# numbers = string.digits
-# punctuation = string.punctuation
-# all = string.printable
-
 def Generate_password(length):
     # take the charcters form the string module
     CHARACTERS = "".join(char for char in string.printable if char not in set(string.whitespace))
@@ -20,18 +14,19 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         length = request.form.get("length")
+        # handle if the length exist and not agreed
         if length:
             try:
                 length = int(length)
-                if length == None:
-                    return render_template("index.html", error="Please enter the length of the number")
                 password = Generate_password(length)
                 return render_template("index.html", password=password, length=length)
             except ValueError:
                 return render_template("index.html",error="Please enter a valid number")
+        else:
+            # handle if the length doesn't exist
+            return render_template("index.html", error="Please enter the length of the number")
+    # return the default website of they are no length recived
     return render_template("index.html")
 
 if __name__ == "__main__":
     app.run(debug=True)
-
-# let this part to me 
