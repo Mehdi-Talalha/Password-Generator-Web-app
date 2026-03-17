@@ -23,6 +23,8 @@ def index():
         if length:
             try:
                 length = int(length)
+                if length == None:
+                    return render_template("index.html", error="Please enter the length of the number")
                 password = Generate_password(length)
                 return render_template("index.html", password=password, length=length)
             except ValueError:
