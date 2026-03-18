@@ -1,0 +1,175 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<form action="/" method="post" class="gen-form glass-card">
+
+    <!-- Length field with slider -->
+    <div class="field-block">
+        <div class="field-label-row">
+            <label class="field-label" for="length-input">Password Length</label>
+            <span class="length-badge" id="len-badge">{{ length if length else '16' }}</span>
+        </div>
+
+        <div class="length-controls">
+            <input
+                type="number"
+                name="length"
+                id="length-input"
+                min="4"
+                max="128"
+                autofocus
+                autocomplete="off"
+                placeholder="16"
+                value="{{ length if length else '16' }}"
+            >
+            <input
+                type="range"
+                id="length-slider"
+                min="4"
+                max="128"
+                value="{{ length if length else '16' }}"
+                class="slider"
+            >
+        </div>
+
+        <!-- strength meter -->
+        <div class="meter-wrap">
+            <div class="meter-track">
+                <div class="meter-fill" id="meter-fill"></div>
+            </div>
+            <span class="meter-label" id="meter-label">Enter a length</span>
+        </div>
+    </div>
+
+    <!-- Character types -->
+    <div class="field-block">
+        <label class="field-label">Character Types</label>
+        <div class="checkbox-group">
+            <label class="checkbox-option">
+                <input type="checkbox" name="characters" value="alpha"
+                    {% if not characters or 'alpha' in characters %}checked{% endif %}>
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-label">
+                    <span class="cb-icon">Aa</span>
+                    <span class="cb-text">Letters</span>
+                </span>
+            </label>
+            <label class="checkbox-option">
+                <input type="checkbox" name="characters" value="digits"
+                    {% if not characters or 'digits' in characters %}checked{% endif %}>
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-label">
+                    <span class="cb-icon">12</span>
+                    <span class="cb-text">Numbers</span>
+                </span>
+            </label>
+            <label class="checkbox-option">
+                <input type="checkbox" name="characters" value="punctuation"
+                    {% if not characters or 'punctuation' in characters %}checked{% endif %}>
+                <span class="checkbox-custom"></span>
+                <span class="checkbox-label">
+                    <span class="cb-icon">!@</span>
+                    <span class="cb-text">Symbols</span>
+                </span>
+            </label>
+        </div>
+    </div>
+
+    <button type="submit" class="gen-btn">
+        <i class="fa-solid fa-bolt"></i> Generate Password
+    </button>
+
+</form>
+
+{% if password %}
+<div class="password-result glass-card-green">
+    <div class="result-top">
+        <h3><i class="fa-solid fa-key"></i> Generated Password</h3>
+        <span class="strength-badge strength-{{ strength | lower }}">
+            {% if strength == 'Strong' %}<i class="fa-solid fa-shield-halved"></i>
+            {% elif strength == 'Medium' %}<i class="fa-solid fa-shield"></i>
+            {% else %}<i class="fa-solid fa-triangle-exclamation"></i>{% endif %}
+            {{ strength }}
+        </span>
+    </div>
+    <p class="password-text" id="pwd-text">{{ password }}</p>
+    <div class="result-footer">
+        <span class="result-meta"><i class="fa-regular fa-hashtag"></i> {{ length }} characters</span>
+        <button type="button" class="copy-btn" onclick="copyPwd()">
+            <i class="fa-regular fa-copy"></i> Copy
+        </button>
+        <span class="copy-toast" id="copy-toast"><i class="fa-solid fa-check"></i> Copied!</span>
+    </div>
+</div>
+{% endif %}
+
+{% if error %}
+<div class="error-message">
+    <i class="fa-solid fa-circle-exclamation"></i> {{ error }}
+</div>
+{% endif %}
+
+<script>
+const numInput = document.getElementById('length-input');
+const slider   = document.getElementById('length-slider');
+const badge    = document.getElementById('len-badge');
+const fill     = document.getElementById('meter-fill');
+const mLabel   = document.getElementById('meter-label');
+
+// Returns [percentage, color-hex, label] for a given length value
+function getMeter(v) {
+    v = parseInt(v);
+    if (isNaN(v) || v < 4)  return [4,   '#ef4444', 'Too short'];
+    if (v <= 7)              return [14,  '#ef4444', 'Weak'];
+    if (v <= 11)             return [35,  '#f97316', 'Fair'];
+    if (v <= 15)             return [57,  '#eab308', 'Medium'];
+    if (v <= 23)             return [79,  '#22c55e', 'Good'];
+                             return [100, '#16a34a', 'Strong'];
+}
+
+function applyMeter(raw) {
+    const v = parseInt(raw);
+    badge.textContent = isNaN(v) ? '—' : v;
+    const [pct, color, txt] = getMeter(raw);
+    // width + background-color both transition smoothly
+    fill.style.width           = pct + '%';
+    fill.style.backgroundColor = color;
+    mLabel.textContent         = txt;
+    // update slider track fill via CSS custom prop
+    if (!isNaN(v)) {
+        const pctSlider = ((v - 4) / (128 - 4)) * 100;
+        slider.style.setProperty('--thumb-pct', pctSlider + '%');
+    }
+}
+
+// slider → number
+slider.addEventListener('input', () => {
+    numInput.value = slider.value;
+    applyMeter(slider.value);
+});
+
+// number → slider
+numInput.addEventListener('input', () => {
+    const v = parseInt(numInput.value);
+    if (!isNaN(v) && v >= 4 && v <= 128) slider.value = v;
+    applyMeter(numInput.value);
+});
+
+// initialise on page load
+applyMeter(numInput.value || 16);
+{% if length %}
+slider.value = '{{ length }}';
+applyMeter('{{ length }}');
+{% endif %}
+
+function copyPwd() {
+    navigator.clipboard.writeText(document.getElementById('pwd-text').innerText).then(() => {
+        const t = document.getElementById('copy-toast');
+        t.classList.add('show');
+        setTimeout(() => t.classList.remove('show'), 2200);
+    });
+}
+</script>
+
+{% endblock %}

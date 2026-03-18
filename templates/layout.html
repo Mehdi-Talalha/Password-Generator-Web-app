@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator App - Create strong password for free</title>
+    <meta name="descrition" content="Random Password Generator , Create passwords for free to keep your accounts safe">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="DENY" />
+    <meta property="og:title" content="Password Generator" />
+    <meta property="og:description" content="Generate strong and secure passwords instantly." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="{{ url_for('static', filename='icon.png') }}" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,300;0,14..32,400;0,14..32,500;0,14..32,600;0,14..32,700;1,14..32,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+
+    <!-- ══════════ HEADER ══════════ -->
+    <header class="site-header glass-header">
+
+        <!-- LEFT: logo + name -->
+        <div class="header-left">
+            <div class="logo-wrap">
+                <img src="{{ url_for('static', filename='icon.png') }}" alt="logo" class="nav-logo">
+                <div class="logo-text-wrap">
+                    <span class="nav-title">Password Generator</span>
+                    <span class="nav-sub">Secure &amp; Free Tool</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- CENTER: feature pills -->
+        <div class="header-center">
+            <span class="nav-pill"><i class="fa-solid fa-lock"></i> Zero Storage</span>
+            <span class="nav-pill"><i class="fa-solid fa-bolt"></i> Instant</span>
+            <span class="nav-pill"><i class="fa-solid fa-shield-halved"></i> 94 Char Pool</span>
+        </div>
+
+        <!-- RIGHT: built-by credit -->
+        <div class="header-right">
+            <span class="header-credit">
+                <i class="fa-solid fa-code"></i>
+                Built by <strong>Ashub</strong> &amp; <strong>Mehdi</strong>
+            </span>
+        </div>
+
+    </header>
+
+    <!-- ══════════ BODY ══════════ -->
+    <main class="page">
+        <section class="header-content">
+            <div class="header_big-header">
+                <h1>Random Password Generator</h1>
+            </div>
+            <div class="header_sub-header">
+                <p>create safe password for free to keep your accounts safe from Hackers</p>
+            </div>
+        </section>
+
+        <section class="main-content">
+            <div class="right-side-content">
+                <div class="castle-image-part">
+                    <img src="../static/castle-image.png" alt="security castle illustration">
+                    <div class="image-caption">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Generate . Secure . Shield</span>
+                    </div>
+                </div>
+            </div>
+            <div class="left-side-content">
+                {% block body %}{% endblock %}
+            </div>
+        </section>
+    </main>
+
+    <!-- ══════════ FOOTER ══════════ -->
+    <footer class="glass-footer">
+        <div class="footer-inner">
+
+            <!-- LEFT: brand + credits -->
+            <div class="footer-left">
+                <img src="{{ url_for('static', filename='icon.png') }}" alt="logo" class="footer-logo">
+                <span class="footer-brand-name">Password Generator</span>
+                <span class="footer-divider"></span>
+                <span class="footer-copy">
+                    &copy; 2026 &nbsp;<strong>Ashub Shafqat</strong> &amp; <strong>Mehdi Talalha</strong>
+                </span>
+                <span class="footer-divider"></span>
+                <a href="https://opensource.org/licenses/MIT" target="_blank" rel="noopener noreferrer" class="footer-link">
+                    <i class="fa-solid fa-scale-balanced"></i> MIT License
+                </a>
+            </div>
+
+            <!-- RIGHT: social icons -->
+            <div class="footer-right">
+                <a href="https://github.com/Mehdi-Talalha" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="https://instagram.com/##########" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mehdi-talalha-0020b93b7/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>
