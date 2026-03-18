@@ -6,13 +6,15 @@ This is a Random password generator web app that generate strong and safe passwo
 - Generate Random passwords
 - You can chose type of characters used in your password
 
+<img src="static/castle-image.png" align="right" width="350" alt="castle image">
+
+
 ## 💼 Tech Stack
 - Flask
 - Python
 - HTML/CSS
 - JavaScript
 
-<img src="static/castle-image.png" align="right" width="350" alt="castle image">
 
 ## ▶️ Installation
 - Go to where you want to put the project `cd <project_path>`
