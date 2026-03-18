@@ -1,6 +1,6 @@
 <div align="center">
 
-# 🔐Password Generator Website
+# 🔐 Password Generator Website
 
 This is a Random password generator web app that generate strong and safe passwords.
 
@@ -8,7 +8,7 @@ This is a Random password generator web app that generate strong and safe passwo
 
 <br>
 
-## 🚀Features
+## 🚀 Features
 - Generate Random passwords
 - You can chose type of characters used in your password
 
@@ -35,9 +35,9 @@ pip install -r requirements.txt
 flask --app app.py run --debug --port 5001
 ```
 
-## 📃License : **MIT**
+## 📃 License : **MIT**
 
-## 👨‍💻Authors
+## 👨‍💻 Authors
 - **Mehdi Talalha** && **Ashab Shafqat**
  
 <br>
