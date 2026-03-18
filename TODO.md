@@ -24,6 +24,7 @@
 
 ---
 
+<<<<<<< HEAD
 # Ashub's Work:
 
 ## 18.03.2026
@@ -38,3 +39,10 @@
 - Professional **header** — logo, feature pills (Zero Storage · Instant · 94 Char Pool), credit pill
 - Professional **footer** — brand + authors + MIT License on left, social icons on right
 - Full-viewport layout (no page scroll on desktop), responsive on all screen sizes
+=======
+# Ashub's Work: 
+-  
+-
+-
+
+>>>>>>> fa2ad8361d90042a51caac0e2bb97de9c8fa785a

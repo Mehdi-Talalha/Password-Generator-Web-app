@@ -2,6 +2,7 @@
 
 {% block body %}
 
+<<<<<<< HEAD
 <form action="/" method="post" class="gen-form glass-card">
 
     <!-- Length field with slider -->
@@ -173,3 +174,45 @@ function copyPwd() {
 </script>
 
 {% endblock %}
+=======
+<form action="/" method="post">
+    <input type="text" name="length" autofocus autocomplete="off" placeholder="Length">
+    <div class="checkbox-group">
+        <!-- labels section -->
+    <label class="checkbox-option">
+        <input type="checkbox" name="characters" value="alpha">
+        <span class="checkbox-custom"></span>
+        <span class="checkbox-label">Abc</span>
+    </label>
+
+    <label class="checkbox-option">
+        <input type="checkbox" name="characters" value="digits">
+        <span class="checkbox-custom"></span>
+        <span class="checkbox-label">123</span>
+    </label>
+
+    <label class="checkbox-option">
+        <input type="checkbox" name="characters" value="punctuation">
+        <span class="checkbox-custom"></span>
+        <span class="checkbox-label">!@#</span>
+    </label>
+    </div>
+    <input type="submit" value="Generate">
+</form>
+
+{% if password %}
+    <div class="password-result">
+        <h3>Generated Password:</h3>
+        <p><strong>{{ password }}</strong></p>
+        <p>Length: {{ length }}</p>
+    </div>
+{% endif %}
+
+{% if error %}
+    <div class="error-message">
+        {{ error }}
+    </div>
+{% endif %}
+
+{% endblock %}
+>>>>>>> fa2ad8361d90042a51caac0e2bb97de9c8fa785a
