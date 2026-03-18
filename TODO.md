@@ -1,7 +1,22 @@
-# Features to add.
+<div align="center">
 
+# Features
 
-- copy button.
-- input that shows up the password
-- range to select length
+</div>
+
+# Mehdi's Work:
+
+## 16.03.2026
+- i built in this day the **MVP Feature** 
+- functionaliy = "True"
+- simple UI 
+
+<img src="/static/MVP-Feature.png" alt="how the MVP Feature look like">
+
+- handle missing length and ValueError
+
+# Ashub's Work:
 - 
+-
+-
+
