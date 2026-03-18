@@ -10,13 +10,22 @@
 - i built in this day the **MVP Feature** 
 - functionaliy = "True"
 - simple UI 
+- <img src="/static/MVP-Feature.png" alt="how the MVP Feature look like">
 
-<img src="/static/MVP-Feature.png" alt="how the MVP Feature look like">
-
+## 17.03.2026
 - handle missing length and ValueError
+- fix some logical bugs in the project
+- add TODO.md
+- change the logo image
+
+## 18.03.2026
+- add footer in the bottom of the web page
+- 
+
+---
 
 # Ashub's Work:
-- 
+-  
 -
 -
 
