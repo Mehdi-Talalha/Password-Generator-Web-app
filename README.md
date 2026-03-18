@@ -12,6 +12,8 @@ This is a Random password generator web app that generate strong and safe passwo
 - HTML/CSS
 - JavaScript
 
+<img src="static/castle-image.png" align="right" width="350" alt="castle image">
+
 ## ▶️ Installation
 - Go to where you want to put the project `cd <project_path>`
 - Clone the repo to your local machime  `git clone  https://github.com/Mehdi-Talalha/Password-Generator-Website/tree/main.git`
@@ -25,9 +27,7 @@ pip install -r requirements.txt
 flask --app app.py run --debug --port 5001
 ```
 
-## License
-**MIT**
+## License : **MIT**
 
 ## 👨‍💻Authors
 - **Mehdi Talalha** && **Ashab Shafqat**
-
