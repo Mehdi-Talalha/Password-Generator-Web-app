@@ -3,7 +3,16 @@
 {% block body %}
 
 <form action="/" method="post">
-    <input type="text" name="length" autofocus autocomplete="off" placeholder="Length">
+    <!-- rnage division -->
+    <div class="length-ranger-container">
+        <div class="label-side">
+            <label for="length">
+                <span class="header_sub-header">Password Length {{ length }} </span>
+                  <input type="range" min="8" max="50" value="length" step="1" name="length">
+            </label>
+        </div>
+    </div>
+
     <div class="checkbox-group">
         <!-- labels section -->
     <label class="checkbox-option">

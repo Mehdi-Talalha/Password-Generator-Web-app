@@ -51,7 +51,6 @@ button {
 }
 
 
-/* you should to style the website */
 
 /* Basic layout styling */
 .page {
@@ -97,44 +96,6 @@ button {
   max-width: 100%;
   height: auto;
   border-radius: var(--radius);
-}
-
-/* Form styling */
-form {
-  background: #f8f9fa;
-  padding: 2rem;
-  border-radius: var(--radius);
-  border: 1px solid #e9ecef;
-  margin-bottom: 2rem;
-}
-
-input[type="text"] {
-  width: 100%;
-  padding: 0.75rem;
-  border: 2px solid #e9ecef;
-  border-radius: var(--radius);
-  font-size: 1rem;
-  margin-bottom: 1rem;
-  transition: border-color 0.3s ease;
-}
-
-input[type="text"]:focus {
-  border-color: var(--color-primary);
-}
-
-input[type="submit"] {
-  width: 100%;
-  padding: 0.75rem 1.5rem;
-  background: var(--color-primary);
-  color: white;
-  border-radius: var(--radius);
-  font-size: 1rem;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-input[type="submit"]:hover {
-  background: #2563eb;
 }
 
 /* Password result styling */
@@ -235,6 +196,46 @@ input[type="submit"]:hover {
     padding: 1rem;
   }
 }
+
+
+/* Form styling */
+form {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid #e9ecef;
+  margin-bottom: 2rem;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 0.75rem;
+  border: 2px solid #e9ecef;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus {
+  border-color: var(--color-primary);
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+  background: #2563eb;
+}
+
 
 /* footer style */
 footer {
