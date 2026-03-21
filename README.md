@@ -37,7 +37,7 @@ flask --app app.py run --debug --port 5001
 ## 📃 License : **MIT**
 
 ## 👨‍💻 Authors
-- **Mehdi Talalha** && **Ashab Shafqat**
+- **Mehdi Talalha** && **Ashab Shafqat** 
  
 <br>
 
