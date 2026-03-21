@@ -3,32 +3,37 @@
 {% block body %}
 
 <form action="/" method="post">
-    <!-- rnage division -->
-    <div class="length-ranger-container">
-        <div class="label-side">
-            <label for="length">
-                <span class="header_sub-header">Password Length {{ length }} </span>
-                  <input type="range" min="8" max="50" value="length" step="1" name="length">
-            </label>
+    <!-- lnegth input -->
+     <input type="text" name="length" autofocus autocomplete="off" placeholder="Length">
+
+    {% if password %}
+        <div class="password-result">
+            <p>Length {{ length }} : <strong>{{ password }}</strong></p>
         </div>
-    </div>
+    {% endif %}
+
+    {% if error %}
+        <div class="error-message">
+            {{ error }}
+        </div>
+    {% endif %}
 
     <div class="checkbox-group">
         <!-- labels section -->
     <label class="checkbox-option">
-        <input type="checkbox" name="characters" value="alpha">
+        <input type="checkbox" name="ascii_letters" value="ascii_letters">
         <span class="checkbox-custom"></span>
         <span class="checkbox-label">Abc</span>
     </label>
 
     <label class="checkbox-option">
-        <input type="checkbox" name="characters" value="digits">
+        <input type="checkbox" name="digits" value="digits">
         <span class="checkbox-custom"></span>
         <span class="checkbox-label">123</span>
     </label>
 
     <label class="checkbox-option">
-        <input type="checkbox" name="characters" value="punctuation">
+            <input type="checkbox" name="punctuation" value="punctuation">
         <span class="checkbox-custom"></span>
         <span class="checkbox-label">!@#</span>
     </label>
@@ -36,18 +41,6 @@
     <input type="submit" value="Generate">
 </form>
 
-{% if password %}
-    <div class="password-result">
-        <h3>Generated Password:</h3>
-        <p><strong>{{ password }}</strong></p>
-        <p>Length: {{ length }}</p>
-    </div>
-{% endif %}
 
-{% if error %}
-    <div class="error-message">
-        {{ error }}
-    </div>
-{% endif %}
 
 {% endblock %}

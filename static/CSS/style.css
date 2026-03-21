@@ -108,10 +108,10 @@ button {
   margin-top: 1rem;
 }
 
-.password-result h3 {
+/* .password-result h3 {
   margin-bottom: 0.5rem;
   color: #155724;
-}
+} */
 
 .password-result strong {
   font-family: 'Courier New', monospace;
