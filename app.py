@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import random
 import string
-
+import os
 
 def Generate_password(length, characters):
     return ''.join(random.choice(characters) for _ in range(length))
@@ -54,3 +54,5 @@ def index():
 
 if __name__ == "__main__":
     app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
