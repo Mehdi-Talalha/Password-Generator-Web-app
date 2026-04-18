@@ -3,12 +3,10 @@ import random
 import string
 import os
 
+app = Flask(__name__)
+
 def Generate_password(length, characters):
     return ''.join(random.choice(characters) for _ in range(length))
-
-# to run the server ==> flask --app app.py run --debug --port 5001
-
-app = Flask(__name__)
 
 CHARACTER_MAP = {
     "digits" : string.digits,
@@ -22,7 +20,7 @@ char_value = [string.digits, string.ascii_letters, string.punctuation]
 @app.route("/", methods=["GET", "POST"])
 def index():    
     if request.method == "POST":
-        length = int(request.form.get("length"))
+        length_str = request.form.get("length")
         
         characters = ""
 
@@ -31,12 +29,13 @@ def index():
                 characters += char_value[i]
                 
         if not characters:
-            # trmember to remove whitespaces
+            # remember to remove whitespaces
             characters = string.printable
             
-        # handle if the length exist and not agreed
-        if length:
+        # handle if the length exists and is valid
+        if length_str:
             try:
+                length = int(length_str)
                 if length < 8:
                     return render_template("index.html", error="Length should be greater than 8")
                 elif length > 50:
@@ -49,7 +48,7 @@ def index():
         else:
             # handle if the length doesn't exist
             return render_template("index.html", error="Please enter the length.")
-    # return the default website of they are no length recived
+    # return the default website if no length received
     return render_template("index.html")
 
 if __name__ == "__main__":
